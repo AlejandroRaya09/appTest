@@ -1,15 +1,16 @@
 <div class="container mt-3">
     <h4>Consulta del tiempo por Ciudad</h4>
     <div class="col-lg-6 alineacion card p-3">
-        <form>
+        <form [formGroup]="formulario" (ngSubmit)="consultar()">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Ciudad</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
+              <label class="form-label">Ciudad</label>
+              <input type="text" class="form-control" formControlName="ciudad" placeholder="Ciudad">
+              <p class="text-danger" *ngIf="formulario.get('ciudad')?.invalid && formulario.get('ciudad')?.touched">*Requerido* *Solo Letras* *No incluir 'Local'*</p>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Codigo de Ciudad</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">Codigo de Ciudad</label>
+              <input type="text" class="form-control" formControlName="codigo" placeholder="Codigo">
+              <p class="text-danger" *ngIf="formulario.get('codigo')?.invalid && formulario.get('codigo')?.touched">Favor de solo escribir LETRAS</p>
             </div>
             
             <button type="submit" class="btn btn-primary">Consultar</button>
