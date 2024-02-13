@@ -63,6 +63,8 @@ export class TiempoComponent implements OnInit{
         }
       })
 
+ }else{
+  console.log('ERROR')
  }
 }
 

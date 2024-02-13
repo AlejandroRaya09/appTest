@@ -1,1 +1,25 @@
-<p>main works!</p>
+<br>
+
+<div class="container" *ngIf="showPaises">
+    <p>Paises</p>
+    <ul *ngFor="let pais of paises">
+        <li>{{pais}}</li>
+    </ul>
+</div>
+
+
+<div class="container">
+    <button class="btn btn-primary" (click)="mostrar()" *ngIf="showPaises">Esconder Paises</button>
+    <button class="btn btn-primary" (click)="mostrar()" *ngIf="!showPaises">Mostrar Paises</button>
+</div>
+<br>
+<div class="container">
+    <h4>NgClass</h4>
+    <br>
+    <div [ngClass]="{'alert-primary': changeCss, 'alert-warning':!changeCss}" class="alert" role="alert">
+        ESTILOS DE ALERTAS BOOTSTRAP
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="cambioCss()">Cambiar Css</button>
+    </div>
+</div>
