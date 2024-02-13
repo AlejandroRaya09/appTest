@@ -1,5 +1,9 @@
 <div class="container mt-3">
     <h4>Consulta del tiempo por Ciudad</h4>
+    <h5>{{fecha}}</h5>
+    <h5>{{fecha | date}}</h5>
+    <h5>{{fecha | date: 'dd/MM/yyyy'}}</h5>
+
     <div class="col-lg-6 alineacion card p-3">
         <form [formGroup]="formulario" (ngSubmit)="consultar()">
             <div class="mb-3">
@@ -15,16 +19,19 @@
             
             <button type="submit" class="btn btn-primary">Consultar</button>
           </form>
+          <p class="text-danger" *ngIf="showError">Error al consultar el estado del Tiempo</p>
     </div>
 
     <div class="col-lg-6 alineacion">
         <div class="card">
             <div class="card-body">
             <ul>
-                <li>Temperatura:</li>
-                <li>Ciudad:</li>
-                <li>Latitud:</li>
-                <li>Longitud:</li>
+                <li>Descripcion: {{descripcion | titlecase}}</li>
+                <li>Temperatura: {{temperatura}}</li>
+                <li>Humedad: {{humedad}}</li>
+                <li>Ciudad: {{name | titlecase}}</li>
+                <li>Latitud: {{latitud}}</li>
+                <li>Longitud: {{longitud}}</li>
             </ul>
             </div>
           </div>
